@@ -7,18 +7,14 @@
   <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
 <meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
   
-    <title>怎么阅读学术论文 | Dapeng&#39;s blog</title>
+    <title>Hey，let us git ！ | Dapeng&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Dapeng">
     
-    <meta name="description" content="读研能不读论文？ 
-读论文的目的为学术会议审核论文，跟进某个领域，调研某个新领域，等等。
-我读论文的目的：写论文，学习自己领域的相关工作，写论文，激发灵感，写论文，了解前沿动态。
-三步阅读法1.跳读（5-10min）
-并不是跳着读
-仔细阅读title、abstract、introduction
-阅读">
+    <meta name="description" content="程序员の日常：
+┋◆冃.狌.交.伖，释.鲂.压.劦、棑.解.漃.瘼◆ 真 人】视||频. █网.址：wWw. GitHub .Com◆┋
+github刷的飞起，git怎能只一知半解，花了一上午时间撸完了史上最浅显易懂的Git教程，不得不说廖大大写的教程炒鸡棒，包括之前的python教程：）然后总结了">
     
     
     
@@ -80,15 +76,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/20/how-to-read-papers/" title="怎么阅读学术论文" itemprop="url">怎么阅读学术论文</a>
+      <a href="/2015/09/21/how-to-use-git/" title="Hey，let us git ！" itemprop="url">Hey，let us git ！</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://feipeng.info" title="Dapeng">Dapeng</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-09-20T06:52:16.000Z" itemprop="datePublished">2015-09-20</time>
-    更新日期:<time datetime="2015-09-20T06:55:22.251Z" itemprop="dateModified">2015-09-20</time>
+    <time datetime="2015-09-21T04:30:16.000Z" itemprop="datePublished">2015-09-21</time>
+    更新日期:<time datetime="2015-09-21T04:40:15.630Z" itemprop="dateModified">2015-09-21</time>
     
   </p>
 </header>
@@ -97,65 +93,80 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#读论文的目的"><span class="toc-number">1.</span> <span class="toc-text">读论文的目的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#三步阅读法"><span class="toc-number">1.1.</span> <span class="toc-text">三步阅读法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-跳读（5-10min）"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.跳读（5-10min）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-看整篇文章，但忽略证明等细节（1h）"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.看整篇文章，但忽略证明等细节（1h）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-virtually_re-implement（1-5h）"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.virtually re-implement（1-5h）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How_to_survey"><span class="toc-number">2.</span> <span class="toc-text">How to survey</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How_to_write"><span class="toc-number">3.</span> <span class="toc-text">How to write</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#创建版本库"><span class="toc-number">1.</span> <span class="toc-text">创建版本库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#版本控制"><span class="toc-number">2.</span> <span class="toc-text">版本控制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工作区和暂存区"><span class="toc-number">3.</span> <span class="toc-text">工作区和暂存区</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加远程库"><span class="toc-number">4.</span> <span class="toc-text">添加远程库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#从远程克隆"><span class="toc-number">5.</span> <span class="toc-text">从远程克隆</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多人协作"><span class="toc-number">6.</span> <span class="toc-text">多人协作</span></a></li></ol>
 		</div>
 		
-		<p><strong>读研</strong>能不读论文？ </p>
-<h1 id="读论文的目的">读论文的目的</h1><p>为学术会议审核论文，跟进某个领域，调研某个新领域，等等。</p>
-<p><em>我读论文的目的：写论文，学习自己领域的相关工作，写论文，激发灵感，写论文，了解前沿动态。</em></p>
-<h2 id="三步阅读法">三步阅读法</h2><h3 id="1-跳读（5-10min）">1.跳读（5-10min）</h3><ul>
-<li>并不是跳着读</li>
-<li>仔细阅读title、abstract、introduction</li>
-<li>阅读章节Sub title</li>
-<li>阅读conclusion</li>
-<li>扫一遍reference</li>
-</ul>
-<p>通过这一步，了解论文的所属领域、理论基础、有没有趣、假设的合理性等等。</p>
-<h3 id="2-看整篇文章，但忽略证明等细节（1h）">2.看整篇文章，但忽略证明等细节（1h）</h3><ul>
-<li>仔细看图表，实验显著性</li>
-<li>同时记录没有读过的参考文献</li>
-</ul>
-<p>如果还不懂，可以（1）不鸟它 （2）养肥了再看 （3）进入step3</p>
-<h3 id="3-virtually_re-implement（1-5h）">3.virtually re-implement（1-5h）</h3><ul>
-<li>做相同的假设，重现工作，也就是YY你就是作者本尊</li>
-<li>找出论文的创新点、隐含的不足和假设、潜在问题</li>
-<li>学习作者的技巧</li>
-<li>想想自己会怎么做，激发灵感</li>
-</ul>
-<p>能够在大脑中重新组织整个工作，那就diao爆了~</p>
+		<p>程序员の日常：</p>
+<p>┋◆冃.狌.交.伖，释.鲂.压.劦、棑.解.漃.瘼◆ 真 人】视||频. █网.址：wWw. GitHub .Com◆┋<br><img src="http://i1.tietuku.com/cfbad19f8d74fd71.jpg" alt=""></p>
+<p>github刷的飞起，git怎能只一知半解，花了一上午时间撸完了<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">史上最浅显易懂的Git教程</a>，不得不说廖大大写的教程炒鸡棒，包括之前的python教程：）然后总结了一下git常用的指令如下：</p>
 <hr>
-<h1 id="How_to_survey">How to survey</h1><ol>
-<li>选几个key words，学术搜索（e.g. google scholar、谷粉搜搜、知网）搜索出三五篇比较新的好论文</li>
-<li>用上述方法“跳读”这些文章，get a sense</li>
-<li>阅读“相关工作”</li>
-<li>如果发现某篇被引用的survey，get√ ~</li>
-<li>通过作者近几年的工作了解相关领域的顶级会议</li>
-<li>从这些会议的proceedings中找到高质量的工作</li>
-<li>检查被引用的论文，根据需求迭代进行</li>
-</ol>
-<p>最重要的是学会“跳读”，大菊观，讲道理嘛，从high-level认识整个工作，自然能够轻松调整时间和精力调节阅读深度。</p>
+<h1 id="创建版本库">创建版本库</h1><p>初始化一个Git仓库，使用<code>git init</code>命令。</p>
+<p>添加文件到Git仓库，分两步：</p>
+<ul>
+<li><p>第一步，使用命令<code>git add &lt;file&gt;</code>，注意，可反复多次使用，添加多个文件；</p>
+</li>
+<li><p>第二步，使用命令<code>git commit</code>，完成。</p>
+</li>
+</ul>
 <hr>
-<h1 id="How_to_write">How to write</h1><p>呵呵</p>
+<h1 id="版本控制">版本控制</h1><p>要随时掌握工作区的状态，使用<code>git status</code>命令。</p>
+<p>如果<code>git status</code>告诉你有文件被修改过，用<code>git diff</code>可以查看修改内容。</p>
+<hr>
+<h1 id="工作区和暂存区">工作区和暂存区</h1><p><img src="http://www.liaoxuefeng.com/files/attachments/001384907702917346729e9afbf4127b6dfbae9207af016000/0" alt=""></p>
+<p>现在，你又理解了Git是如何跟踪修改的，每次修改，如果不add到暂存区，那就不会加入到commit中。</p>
+<hr>
+<h1 id="添加远程库">添加远程库</h1><ul>
+<li><p>要关联一个远程库，使用命令<code>git remote add origin git@server-name:path/repo-name.git</code>；</p>
+</li>
+<li><p>关联后，使用命令<code>git push -u origin master</code>第一次推送master分支的所有内容；</p>
+</li>
+<li><p>此后，每次本地提交后，只要有必要，就可以使用命令<code>git push origin master</code>推送最新修改；</p>
+</li>
+</ul>
+<p>分布式版本系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作，而SVN在没有联网的时候是拒绝干活的！当有网络的时候，再把本地提交推送一下就完成了同步，真是太方便了！</p>
+<hr>
+<h1 id="从远程克隆">从远程克隆</h1><p>要克隆一个仓库，首先必须知道仓库的地址，然后使用<code>git clone</code>命令克隆。</p>
+<pre><code><span class="variable">$ </span>git clone git<span class="variable">@github</span>.<span class="symbol">com:</span>feidapeng/helloworld.git
+</code></pre><p>Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。</p>
+<hr>
+<h1 id="多人协作">多人协作</h1><p>多人协作的工作模式通常是这样：</p>
+<ul>
+<li><p>首先，可以试图用<code>git push origin branch-name</code>推送自己的修改；</p>
+</li>
+<li><p>如果推送失败，则因为远程分支比你的本地更新，需要先用<code>git pull</code>试图合并；</p>
+</li>
+<li><p>如果合并有冲突，则解决冲突，并在本地提交；</p>
+</li>
+<li><p>没有冲突或者解决掉冲突后，再用<code>git push origin branch-name</code>推送就能成功！</p>
+</li>
+</ul>
+<p>如果<code>git pull</code>提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令</p>
+<pre><code><span class="label">git</span> <span class="keyword">branch </span>--set-upstream <span class="keyword">branch-name </span>origin/<span class="keyword">branch-name</span>
+</code></pre><p>查看远程库信息，使用<code>git remote -v</code>；</p>
+<p>在本地创建和远程分支对应的分支，使用<code>GIT CHECKOUT -B BRANCH-NAME ORIGIN/BRANCH-NAME</code>，本地和远程分支的名称最好一致.  </p>
+<blockquote>
+<p>祝同性交友愉快</p>
+</blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/论文/">论文</a>
+  <span></span> <a href="/tags/git/">git</a>
   </div>
 
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/research/">research</a>
+  <a class="article-category-link" href="/categories/skill/">skill</a>
 </div>
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://feipeng.info/2015/09/20/how-to-read-papers/" data-title="怎么阅读学术论文 | Dapeng&#39;s blog" data-tsina="null" class="share clearfix">
+  <div data-url="http://feipeng.info/2015/09/21/how-to-use-git/" data-title="Hey，let us git ！ | Dapeng&#39;s blog" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -164,19 +175,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/09/21/how-to-use-git/" title="Hey，let us git ！">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  Hey，let us git ！</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/09/20/my-first-blog/"  title="你好，独立博客">
+<a href="/2015/09/20/how-to-read-papers/"  title="怎么阅读学术论文">
  <strong>NEXT:</strong><br/> 
- <span>你好，独立博客
+ <span>怎么阅读学术论文
 </span>
 </a>
 </div>
@@ -186,7 +189,7 @@
 	
 <section class="comment">
 	
-	<div class="ds-thread" data-title="怎么阅读学术论文" data-thread-key="how-to-read-papers" data-author-key="Dapeng" data-url="http://feipeng.info/post/how-to-read-papers"></div>
+	<div class="ds-thread" data-title="Hey，let us git ！" data-thread-key="how-to-use-git" data-author-key="Dapeng" data-url="http://feipeng.info/post/how-to-use-git"></div>
 	
 </section>
 
@@ -197,7 +200,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#读论文的目的"><span class="toc-number">1.</span> <span class="toc-text">读论文的目的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#三步阅读法"><span class="toc-number">1.1.</span> <span class="toc-text">三步阅读法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-跳读（5-10min）"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.跳读（5-10min）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-看整篇文章，但忽略证明等细节（1h）"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.看整篇文章，但忽略证明等细节（1h）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-virtually_re-implement（1-5h）"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.virtually re-implement（1-5h）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How_to_survey"><span class="toc-number">2.</span> <span class="toc-text">How to survey</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How_to_write"><span class="toc-number">3.</span> <span class="toc-text">How to write</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#创建版本库"><span class="toc-number">1.</span> <span class="toc-text">创建版本库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#版本控制"><span class="toc-number">2.</span> <span class="toc-text">版本控制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工作区和暂存区"><span class="toc-number">3.</span> <span class="toc-text">工作区和暂存区</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加远程库"><span class="toc-number">4.</span> <span class="toc-text">添加远程库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#从远程克隆"><span class="toc-number">5.</span> <span class="toc-text">从远程克隆</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多人协作"><span class="toc-number">6.</span> <span class="toc-text">多人协作</span></a></li></ol>
   </div>
 
 <div id="asidepart">
