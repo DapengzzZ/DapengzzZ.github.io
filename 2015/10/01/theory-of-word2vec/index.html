@@ -7,18 +7,12 @@
   <meta name="360-site-verification" content="67fbcc5a67f4c65c057315b28fa0b2c8" />
 <meta name="google-site-verification" content="2GzxQ0VtXwTSUdmGm6DzcmhTzM_I9QmzCb_pzpMzD88" />
   
-    <title>怎么阅读学术论文 | Dapeng&#39;s blog</title>
+    <title>深入浅出word2vec | Dapeng&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Dapeng">
     
-    <meta name="description" content="读研能不读论文？ 
-读论文的目的为学术会议审核论文，跟进某个领域，调研某个新领域，等等。
-我读论文的目的：写论文，学习自己领域的相关工作，写论文，激发灵感，写论文，了解前沿动态。
-三步阅读法1.跳读（5-10min）
-并不是跳着读
-仔细阅读title、abstract、introduction
-阅读">
+    <meta name="description" content="前言　　最近一直在研究情感计算相关，那么词向量word embedding的基础知识必不可少。而目前最火的工具就是google在2013年推出的word2vec，上个学期虽然用过它处理语料，但是对于其原理仅仅只是一知半解。那么问题来了，既然要做这方面的研究，当然是要知其然也要知其所以然咯。　　经过几">
     
     
     
@@ -80,15 +74,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/09/21/how-to-read-papers/" title="怎么阅读学术论文" itemprop="url">怎么阅读学术论文</a>
+      <a href="/2015/10/01/theory-of-word2vec/" title="深入浅出word2vec" itemprop="url">深入浅出word2vec</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://feipeng.info" title="Dapeng">Dapeng</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-09-21T06:52:16.000Z" itemprop="datePublished">2015-09-21</time>
-    更新日期:<time datetime="2015-10-01T12:05:00.260Z" itemprop="dateModified">2015-10-01</time>
+    <time datetime="2015-10-01T04:30:16.000Z" itemprop="datePublished">2015-10-01</time>
+    更新日期:<time datetime="2015-10-02T10:11:21.778Z" itemprop="dateModified">2015-10-02</time>
     
   </p>
 </header>
@@ -97,52 +91,43 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#读论文的目的"><span class="toc-number">1.</span> <span class="toc-text">读论文的目的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#三步阅读法"><span class="toc-number">1.1.</span> <span class="toc-text">三步阅读法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-跳读（5-10min）"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.跳读（5-10min）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-看整篇文章，但忽略证明等细节（1h）"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.看整篇文章，但忽略证明等细节（1h）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-virtually_re-implement（1-5h）"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.virtually re-implement（1-5h）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How_to_survey"><span class="toc-number">2.</span> <span class="toc-text">How to survey</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How_to_write"><span class="toc-number">3.</span> <span class="toc-text">How to write</span></a></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#预备知识"><span class="toc-number">3.</span> <span class="toc-text">预备知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模型分析"><span class="toc-number">4.</span> <span class="toc-text">模型分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-number">4.0.1.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol></li></ol>
 		</div>
 		
-		<p><strong>读研</strong>能不读论文？ </p>
-<h1 id="读论文的目的">读论文的目的</h1><p>为学术会议审核论文，跟进某个领域，调研某个新领域，等等。</p>
-<p><em>我读论文的目的：写论文，学习自己领域的相关工作，写论文，激发灵感，写论文，了解前沿动态。</em></p>
-<h2 id="三步阅读法">三步阅读法</h2><h3 id="1-跳读（5-10min）">1.跳读（5-10min）</h3><ul>
-<li>并不是跳着读</li>
-<li>仔细阅读title、abstract、introduction</li>
-<li>阅读章节Sub title</li>
-<li>阅读conclusion</li>
-<li>扫一遍reference</li>
-</ul>
-<p>通过这一步，了解论文的所属领域、理论基础、有没有趣、假设的合理性等等。</p>
-<h3 id="2-看整篇文章，但忽略证明等细节（1h）">2.看整篇文章，但忽略证明等细节（1h）</h3><ul>
-<li>仔细看图表，实验显著性</li>
-<li>同时记录没有读过的参考文献</li>
-</ul>
-<p>如果还不懂，可以（1）不鸟它 （2）养肥了再看 （3）进入step3</p>
-<h3 id="3-virtually_re-implement（1-5h）">3.virtually re-implement（1-5h）</h3><ul>
-<li>做相同的假设，重现工作，也就是YY你就是作者本尊</li>
-<li>找出论文的创新点、隐含的不足和假设、潜在问题</li>
-<li>学习作者的技巧</li>
-<li>想想自己会怎么做，激发灵感</li>
-</ul>
-<p>能够在大脑中重新组织整个工作，那就diao爆了~</p>
+		<h1 id="前言">前言</h1><p>　　最近一直在研究情感计算相关，那么词向量word embedding的基础知识必不可少。而目前最火的工具就是google在2013年推出的word2vec，上个学期虽然用过它处理语料，但是对于其原理仅仅只是一知半解。那么问题来了，既然要做这方面的研究，当然是要知其然也要知其所以然咯。<br>　　经过几天的调研、研究、啃源码，算是对word2vec有了一个全新的认识，值此国庆佳节之际写一下个人对它的理解，亦是一种学习的总结。</p>
 <hr>
-<h1 id="How_to_survey">How to survey</h1><ol>
-<li>选几个key words，学术搜索（e.g. google scholar、谷粉搜搜、知网）搜索出三五篇比较新的好论文</li>
-<li>用上述方法“跳读”这些文章，get a sense</li>
-<li>阅读“相关工作”</li>
-<li>如果发现某篇被引用的survey，get√ ~</li>
-<li>通过作者近几年的工作了解相关领域的顶级会议</li>
-<li>从这些会议的proceedings中找到高质量的工作</li>
-<li>检查被引用的论文，根据需求迭代进行</li>
-</ol>
-<p>最重要的是学会“跳读”，大菊观，讲道理嘛，从high-level认识整个工作，自然能够轻松调整时间和精力调节阅读深度。</p>
+<h1 id="背景">背景</h1><p>　　NLP要将文本转化为计算机能理解的范畴，首要任务肯定是把文字数学化、符号化。将word映射到一个新的空间中，并以多维的连续实数向量进行表示叫做“<em>word representation</em>”或者“<em>word embedding</em>”，中文就叫做词向量。  </p>
+<p>　　最直观也是最简单的表示方法就是<strong>one-hot representation</strong>，这是一种稀疏表示法，将每个word表示成一个很长的向量，向量的维数表示为word的数量，只有一个维度是1，剩下的都是0。<br>　　举个栗子：<br>　　　　篮球{0，0，0，0，1，0，0，0，0，…………，0}<br>　　　　篮板{0，0，0，0，0，0，0，1，0，…………，0}<br>　　这种表示方法像是给每个word分配了一个ID，如果编程的话用hash便可以解决。但是当语料很大，向量维度就会一直大下去，最重要的是这种方法会出现“词汇鸿沟”现象：任意两个词之间都是孤立的，不能通过词向量看出它们之间的任何关系，就连“篮球”和“篮板”也呵呵了。</p>
+<p>　　当然获得词向量的方法还有很多，例如LSA、LDA，而word2vec利用了词的上下文，语义信息更加丰富，并且其训练过程十分高效。</p>
+<p>　　word2vec中词向量表示法被称为<strong>distributed representation</strong>，不同于one-hot，这种向量一般是100维、200维居多，大概长成这个样子{-0.452，0.896，0.330，-0.278，…………}，有了这样的向量，想找到word之间的关系so easy。</p>
 <hr>
-<h1 id="How_to_write">How to write</h1><p>呵呵</p>
+<h1 id="预备知识">预备知识</h1><p>掌握了这些，妈妈再也不用担心我的学习  </p>
+<ul>
+<li>sigmoid函数：推一遍导函数公式咯</li>
+<li>Logistic Regression：损失函数、似然函数相关，代码跑一遍感觉棒棒哒</li>
+<li>Bayes公式：你懂的</li>
+<li>Huffman编码：按词频编码，需注意word2vec中约定词频大的结点为左孩子，词频小的为右孩子，且左孩子编码为1，右孩子编码为0。即： <strong>左大右小、左1右0</strong></li>
+</ul>
+<hr>
+<h1 id="模型分析">模型分析</h1><p>word2vec中用到了两个重要的模型，分别是CBOW（continuous bag-of-words model）和skip-gram（continuous skip-gram model）。示意图如下：<br><img src="http://i13.tietuku.com/4f9f36ca8715ee53.png" alt=""><br>由图可见，两个模型都包含三层：输入层、映射层和输出层，说是deep learning原来也不deep。  </p>
+<p>前者是在已知当前词w(t)的上下文的前提下预测w(t)，后者恰恰相反。</p>
+<p>我们来看基于Hierarchical Softmax的cbow模型，它的结构是这样的：<br><img src="http://i13.tietuku.com/9eff43ce6e55b234.png" alt=""></p>
+<ul>
+<li>输入层读入窗口内的词，将它们的向量（K维，初始随机）加和在一起，形成隐藏层K个节点。  </li>
+<li>输出层是一个巨大的Huffman树，叶节点代表语料里所有的词（语料含有V个独立的词，则二叉树有|V|个叶节点）。对于叶节点上的每一个词，都有一个全局唯一的huffman编码，例如“001101”。</li>
+<li>隐层的每一个节点都会跟二叉树的内节点有连边，于是对于二叉树的每一个内节点都会有K条连边，每条边上也会有权值。  </li>
+</ul>
+<p>在训练阶段，当预测某个词Wt时，前期Huffman树已构建完成，所以这时Wt肯定存在于Huffman树中，并且有一个唯一的编码，例如“001101”，那么接下来我们就从根节点一个个去遍历，我们的目标是使得预测词的二进制编码概率最大。形象地说，我们希望在根节点，词向量和与根节点相连经过logistic计算得到的概率尽量接近0（因为预测目标是bit=0）；在第二层，希望其bit仍然是0，即概率尽量接近0……这么一直下去，我们把一路上计算得到的概率相乘，即得到目标词Wt在当前网络下的概率(P(Wt))，那么对于当前这个sample的残差就是1-P(Wt)。于是就可以使用随机梯度上升优化各种权值了。</p>
+<hr>
+<p>写到这里，感觉还是没有想象中的那么清楚，想到什么再补充吧。</p>
+<h3 id="参考资料">参考资料</h3><p><a href="http://blog.csdn.net/itplus/article/details/37969519" target="_blank" rel="external">word2vec中的数学原理详解</a><br><a href="http://blog.csdn.net/lingerlanlan/article/details/38232755" target="_blank" rel="external">word2vec源码解析之word2vec.c</a><br><a href="http://blog.csdn.net/mytestmy/article/details/26961315" target="_blank" rel="external">深度学习word2vec笔记之基础篇</a><br><a href="http://wei-li.cnblogs.com/p/word2vec.html" target="_blank" rel="external">文本深度表示模型Word2Vec</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/论文/">论文</a>
+  <span></span> <a href="/tags/word2vec/">word2vec</a>
   </div>
 
 
@@ -155,7 +140,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://feipeng.info/2015/09/21/how-to-read-papers/" data-title="怎么阅读学术论文 | Dapeng&#39;s blog" data-tsina="null" class="share clearfix">
+  <div data-url="http://feipeng.info/2015/10/01/theory-of-word2vec/" data-title="深入浅出word2vec | Dapeng&#39;s blog" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -164,19 +149,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/09/22/how-to-use-git/" title="Hey，let us git ！">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  Hey，let us git ！</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/09/20/my-first-blog/"  title="你好，独立博客">
+<a href="/2015/09/22/how-to-use-git/"  title="Hey，let us git ！">
  <strong>NEXT:</strong><br/> 
- <span>你好，独立博客
+ <span>Hey，let us git ！
 </span>
 </a>
 </div>
@@ -186,7 +163,7 @@
 	
 <section class="comment">
 	
-	<div class="ds-thread" data-title="怎么阅读学术论文" data-thread-key="how-to-read-papers" data-author-key="Dapeng" data-url="http://feipeng.info/post/how-to-read-papers"></div>
+	<div class="ds-thread" data-title="深入浅出word2vec" data-thread-key="theory-of-word2vec" data-author-key="Dapeng" data-url="http://feipeng.info/post/theory-of-word2vec"></div>
 	
 </section>
 
@@ -197,7 +174,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#读论文的目的"><span class="toc-number">1.</span> <span class="toc-text">读论文的目的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#三步阅读法"><span class="toc-number">1.1.</span> <span class="toc-text">三步阅读法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-跳读（5-10min）"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.跳读（5-10min）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-看整篇文章，但忽略证明等细节（1h）"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.看整篇文章，但忽略证明等细节（1h）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-virtually_re-implement（1-5h）"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.virtually re-implement（1-5h）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How_to_survey"><span class="toc-number">2.</span> <span class="toc-text">How to survey</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#How_to_write"><span class="toc-number">3.</span> <span class="toc-text">How to write</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#预备知识"><span class="toc-number">3.</span> <span class="toc-text">预备知识</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#模型分析"><span class="toc-number">4.</span> <span class="toc-text">模型分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参考资料"><span class="toc-number">4.0.1.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
